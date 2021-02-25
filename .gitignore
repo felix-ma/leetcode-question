@@ -4,6 +4,7 @@
 *.class
 
 doc
+*.json
 
 # Log file
 *.log
