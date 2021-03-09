@@ -1,23 +1,24 @@
 package com.felix.nowcoder;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class Main {
+
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNextLine()) {
-            int n = scanner.nextInt();
-            boolean[] stu = new boolean[1001];
-            for (int i = 0; i < n; i++) {
-                stu[scanner.nextInt()] = true;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String str;
+        while ((str = reader.readLine()) != null) {
+            String item = str;
+            while (item.length() > 8) {
+                System.out.println(item.substring(0, 8));
+                item = item.substring(8);
             }
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < stu.length; i++) {
-                if (stu[i]) {
-                    sb.append(i).append("\n");
-                }
+            System.out.print(item);
+            for (int i = 0; i < 8 - item.length(); i++) {
+                System.out.print("0");
             }
-            System.out.println(sb);
+            System.out.println();
         }
     }
 }
